@@ -80,7 +80,6 @@ def load_data(city, month, day):
     print('most common month is:           ',popular_month)
     print('most common day of the week is: ',popular_day)
     print('most common hour is:            ',popular_hour)
-    #print('Remember, the chosen day is:', day)
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
@@ -88,21 +87,11 @@ def load_data(city, month, day):
 
 
     if day != 'all':
-        # filter by day of week to create the new dataframe
-        #daysall = ['Monday', 'Tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        #day_index = daysall.index(day) + 1
         df = df[df['day_of_week'] == day.capitalize()]
         return df
 
-    #df = df[df['day_of_week'] == day]
-    #df['trip'] = df.str.join(df['Start Station'], df[End Station])
-    #popular_day2 = df['day_of_week'].mode()[0]#recalculates the day for the chosen month
-    #df['day3'] = popular_day2
-    #popular_day3 = df['day_of_week'].mode()[0]
-    #df['day4'] = popular_day3
-    return df
-    #return popular_month #şimdilik bir işe yaramıyor!
 
+    return df
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -110,11 +99,7 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
-    #print('most common month for',city,' is: ',popular_month)
-    #print('most common month for ', df.iloc[1,12], 'is: ', df.iloc[1,13])
-    # TO DO: display the most common day of week
-    #popular_day3 = df['day_of_week'].mode()[0]
+
     print('The most common day of the week in ', df.iloc[1,12], 'over 6 months period is: ', df.iloc[1,14])
     print('However, for this specific month, the most common day of the week is: , popular_day3')
     popular_hour2 = df['hour'].mode()[0]
