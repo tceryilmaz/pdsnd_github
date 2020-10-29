@@ -85,11 +85,7 @@ def load_data(city, month, day):
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
         df = df[df['month'] == month]
-    #else:
-    #    df = df[df['month'] >= 0]
-        #popular_day2 = df['day_of_week'].mode()[0]#recalculates the day for the chosen month
-        #df['day3'] = popular_day2
-        #return df
+
 
     if day != 'all':
         # filter by day of week to create the new dataframe
